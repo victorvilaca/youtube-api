@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
+import Layout from "../../layout/views/Layout";
 
 const ListVideos = props => {
   const [redirect, setRedirect] = useState(null);
@@ -13,11 +14,17 @@ const ListVideos = props => {
   }, [user]);
 
   return (
-    <React.Fragment>
-      <div>Bem vindo, {user}.</div>
+    <Layout showHeader>
+      <div style={styles.content}>Aqui é o conteúdo</div>
       {redirect}
-    </React.Fragment>
+    </Layout>
   );
+};
+
+const styles = {
+  content: {
+    marginTop: "10px"
+  }
 };
 
 export default ListVideos;

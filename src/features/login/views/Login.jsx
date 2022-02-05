@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import GoogleLogin from "react-google-login";
 import { Redirect } from "react-router-dom";
 import CartolaLogo from "../../../shared/img/cartola-logo.png";
@@ -31,7 +31,7 @@ const Login = () => {
         className={styles.loginButton}
         render={renderProps => (
           <button onClick={renderProps.onClick} style={styles.loginButton}>
-            Login
+            Entrar
           </button>
         )}
       ></GoogleLogin>
@@ -40,7 +40,7 @@ const Login = () => {
   );
 };
 
-var styles = {
+const styles = {
   backgroundImagem: {
     height: "100%",
     width: "100%",
@@ -54,24 +54,18 @@ var styles = {
     transform: "translate(-50%, -50%)"
   },
   loginButton: {
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
     height: "50px",
     width: "250px",
-    border: "none",
-    borderBottom: "2px solid rgba(0, 0, 0, 0.25)",
+    border: "2px solid rgba(0, 0, 0, 0.25)",
     borderRadius: "3px",
     cursor: "pointer",
     backgroundColor: "#e3672a",
     fontSize: "18px",
     color: "white",
-    letterSpacing: "-0.04em",
-    fontFamily: 'proximanova-bold,"Helvetica Neue",Arial,sans-serif',
     textAlign: "center",
-    textDecoration: "none",
     textTransform: "uppercase",
-    transition: ".35s",
     whiteSpace: "nowrap",
     position: "fixed",
     top: "60%",
