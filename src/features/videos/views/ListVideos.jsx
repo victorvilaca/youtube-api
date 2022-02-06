@@ -51,8 +51,8 @@ const ListVideos = props => {
               video &&
               video.snippet &&
               video.snippet.thumbnails &&
-              video.snippet.thumbnails.default &&
-              video.snippet.thumbnails.default.url;
+              video.snippet.thumbnails.high &&
+              video.snippet.thumbnails.high.url;
             const title = video && video.snippet && video.snippet.title;
             const channel = video && video.snippet && video.snippet.channelTitle;
             const date = video && video.snippet && video.snippet.publishTime;
@@ -88,12 +88,11 @@ const ListVideos = props => {
 
 const styles = {
   content: {
-    marginTop: "10px",
-    marginLeft: '50px',
-    marginRight: '50px',
+    marginLeft: "50px",
+    marginRight: "50px",
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-    gridGap: "30px"
+    gridGap: "100px"
   }
 };
 

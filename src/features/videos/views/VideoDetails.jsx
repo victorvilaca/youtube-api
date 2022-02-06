@@ -6,17 +6,20 @@ const VideoDetails = props => {
 
   return (
     <div id="videoDetails" style={styles.card} onClick={() => setSelectedVideo(id)}>
-      <div id="image" style={styles.image}>
-        <img src={image} alt="thumb do vídeo"></img>
+      <div id="image">
+        <img src={image} alt="thumb do vídeo" style={styles.image} />
       </div>
-      <div id="title" style={styles.title}>
-        {title}
+      <div id="titleContainer" style={styles.title}>
+        <span id="title">{title}</span>
       </div>
-      <div id="channel" style={styles.channel}>
-        {channel}
+
+      <div id="channelContainer" style={styles.channel}>
+        <span id="channel">{channel}</span>
       </div>
-      <div id="viewsAndDate" style={styles.viewsAndDate}>
-        {views} views - {dateFormatted}
+      <div id="viewsAndDateContainer" style={styles.viewsAndDate}>
+        <span id="viewsAndDate">
+          {views} views • {dateFormatted}
+        </span>
       </div>
     </div>
   );
@@ -24,15 +27,33 @@ const VideoDetails = props => {
 
 const styles = {
   image: {
-    marginTop: "10px"
+    width: "300px"
   },
-  title: {},
-  channel: {},
-  viewsAndDate: {},
+  title: {
+    paddingTop: "15px",
+    fontWeight: "bold",
+    textAlign: "left",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 2
+  },
+  channel: {
+    fontSize: "12px",
+    textAlign: "left",
+    paddingTop: "15px"
+  },
+  viewsAndDate: {
+    fontSize: "12px",
+    textAlign: "left",
+    paddingTop: "5px"
+  },
   card: {
-    height: "200px",
-    width: "100%",
-    objectFit: "cover"
+    objectFit: "cover",
+    marginTop: "40px",
+    cursor: "pointer",
+    width: "300px"
   }
 };
 

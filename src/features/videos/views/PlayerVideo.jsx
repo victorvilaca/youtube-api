@@ -1,20 +1,29 @@
+import { useCallback, useEffect } from "react";
+
 const PlayerVideo = props => {
   const { handleClose, videoId } = props;
 
+  const escFunction = useCallback(event => {
+    if (event.keyCode === 27) {
+      handleClose();
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction);
+
+    return () => {
+      document.removeEventListener("keydown", escFunction);
+    };
+  }, [escFunction]);
   return (
     videoId && (
-      <div style={styles.modal}>
-        <section style={styles.modalMain}>
-          <iframe
-            title="player video"
-            width="420"
-            height="315"
-            src={`https://www.youtube.com/embed/${videoId}`}
-          ></iframe>
-          <button type="button" onClick={handleClose}>
-            Close
-          </button>
-        </section>
+      <div style={styles.modal} onClick={() => handleClose()}>
+        <iframe
+          style={styles.iframe}
+          src={`https://www.youtube.com/embed/${videoId}`}
+          allow="encrypted-media"
+        ></iframe>
       </div>
     )
   );
@@ -30,14 +39,12 @@ const styles = {
     background: "rgba(0, 0, 0, 0.6)",
     display: "block"
   },
-
-  modalMain: {
+  iframe: {
     position: "fixed",
-    background: "white",
-    width: "80%",
-    height: "auto",
     top: "50%",
     left: "50%",
+    width: "80%",
+    height: "70%",
     transform: "translate(-50%,-50%)"
   }
 };
