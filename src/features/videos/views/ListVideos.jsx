@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Redirect } from "react-router-dom";
 import Layout from "../../layout/views/Layout";
 import VideoManager from "../VideoManager";
@@ -13,6 +13,17 @@ const ListVideos = props => {
 
   const user = location && location.state && location.state.user;
 
+  const searchVideos = async searchTerm => {
+    const response = await VideoManager.listVideosByTerm(searchTerm);
+    setVideos(response);
+  };
+
+  const searchTermRef = useRef(searchTerm);
+
+  useEffect(() => {
+    searchTermRef.current = searchTerm;
+  });
+
   useEffect(() => {
     if (!user) {
       setRedirect(<Redirect to="/login" />);
@@ -20,13 +31,8 @@ const ListVideos = props => {
   }, [user]);
 
   useEffect(() => {
-    searchVideos();
+    searchVideos(searchTermRef.current);
   }, []);
-
-  const searchVideos = async () => {
-    const response = await VideoManager.listVideosByTerm(searchTerm);
-    setVideos(response);
-  };
 
   return (
     <Layout
