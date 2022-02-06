@@ -1,11 +1,13 @@
 import Header from "./Header";
 
 const Layout = props => {
-  const { children, showHeader } = props;
+  const { children, showHeader, setSearchTerm, searchTerm, searchVideos } = props;
 
   return (
     <div>
-      {showHeader && <Header />}
+      {showHeader && (
+        <Header setSearchTerm={setSearchTerm} searchTerm={searchTerm} searchVideos={searchVideos} />
+      )}
       {children}
     </div>
   );

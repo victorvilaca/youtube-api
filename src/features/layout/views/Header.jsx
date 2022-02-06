@@ -3,13 +3,18 @@ import Textfield from "../../../shared/components/Textfield";
 import { Search } from "react-feather";
 
 const Header = props => {
+  const { searchTerm, setSearchTerm, searchVideos } = props;
   return (
     <div id="header" style={styles.header}>
       <div style={styles.textfieldContainer}>
-        <Textfield />
+        <Textfield onChange={value => setSearchTerm(value)} />
       </div>
       <div style={styles.buttonContainer}>
-        <Button style={styles.button} label={<Search size={10} />} />
+        <Button
+          style={styles.button}
+          onClick={() => searchVideos(searchTerm)}
+          label={<Search size={10} />}
+        />
       </div>
     </div>
   );

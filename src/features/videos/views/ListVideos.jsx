@@ -9,6 +9,7 @@ const ListVideos = props => {
 
   const [redirect, setRedirect] = useState(null);
   const [videos, setVideos] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("cartola fc");
 
   const user = location && location.state && location.state.user;
 
@@ -19,16 +20,21 @@ const ListVideos = props => {
   }, [user]);
 
   useEffect(() => {
-    const searchVideos = async () => {
-      const response = await VideoManager.listVideosByTerm("atletico");
-      setVideos(response);
-    };
-
     searchVideos();
   }, []);
 
+  const searchVideos = async () => {
+    const response = await VideoManager.listVideosByTerm(searchTerm);
+    setVideos(response);
+  };
+
   return (
-    <Layout showHeader>
+    <Layout
+      showHeader
+      setSearchTerm={setSearchTerm}
+      searchTerm={searchTerm}
+      searchVideos={searchVideos}
+    >
       <div style={styles.content}>
         {videos &&
           videos.map(video => {
