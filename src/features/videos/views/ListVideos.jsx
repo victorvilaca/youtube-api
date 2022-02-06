@@ -88,7 +88,12 @@ const ListVideos = props => {
 
 const styles = {
   content: {
-    marginTop: "10px"
+    marginTop: "10px",
+    marginLeft: '50px',
+    marginRight: '50px',
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+    gridGap: "30px"
   }
 };
 

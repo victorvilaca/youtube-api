@@ -5,7 +5,7 @@ const VideoDetails = props => {
   const dateFormatted = moment(date, "YYYYMMDD").fromNow();
 
   return (
-    <div id="videoDetails" onClick={() => setSelectedVideo(id)}>
+    <div id="videoDetails" style={styles.card} onClick={() => setSelectedVideo(id)}>
       <div id="image" style={styles.image}>
         <img src={image} alt="thumb do vídeo"></img>
       </div>
@@ -28,7 +28,12 @@ const styles = {
   },
   title: {},
   channel: {},
-  viewsAndDate: {}
+  viewsAndDate: {},
+  card: {
+    height: "200px",
+    width: "100%",
+    objectFit: "cover"
+  }
 };
 
 export default VideoDetails;
