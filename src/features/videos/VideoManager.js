@@ -19,6 +19,7 @@ class VideoManager {
       const statistic = statistics.find(element => element.id === video.id.videoId);
       video.statistic = statistic || null;
     });
+
     return videos;
   }
 }

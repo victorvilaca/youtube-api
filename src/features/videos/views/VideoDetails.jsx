@@ -1,5 +1,8 @@
+import moment from "moment";
+
 const VideoDetails = props => {
   const { image, title, channel, views, date } = props;
+  const dateFormatted = moment(date, "YYYYMMDD").fromNow();
 
   return (
     <div id="videoDetails">
@@ -13,7 +16,7 @@ const VideoDetails = props => {
         {channel}
       </div>
       <div id="viewsAndDate" style={styles.viewsAndDate}>
-        {views} views - {date} ago
+        {views} views - {dateFormatted}
       </div>
     </div>
   );
