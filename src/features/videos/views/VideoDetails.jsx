@@ -1,11 +1,11 @@
 import moment from "moment";
 
 const VideoDetails = props => {
-  const { image, title, channel, views, date } = props;
+  const { image, title, channel, views, date, id, setSelectedVideo } = props;
   const dateFormatted = moment(date, "YYYYMMDD").fromNow();
 
   return (
-    <div id="videoDetails">
+    <div id="videoDetails" onClick={() => setSelectedVideo(id)}>
       <div id="image" style={styles.image}>
         <img src={image} alt="thumb do vídeo"></img>
       </div>

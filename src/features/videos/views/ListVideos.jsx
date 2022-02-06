@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import Layout from "../../layout/views/Layout";
 import VideoManager from "../VideoManager";
 import VideoDetails from "./VideoDetails";
+import PlayerVideo from "./PlayerVideo";
 
 const ListVideos = props => {
   const { location } = props;
@@ -10,6 +11,7 @@ const ListVideos = props => {
   const [redirect, setRedirect] = useState(null);
   const [videos, setVideos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("cartola fc");
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   const user = location && location.state && location.state.user;
 
@@ -68,12 +70,17 @@ const ListVideos = props => {
                   channel={channel}
                   views={views}
                   date={date}
+                  id={id}
                   key={id}
+                  setSelectedVideo={setSelectedVideo}
                 />
               )
             );
           })}
       </div>
+
+      <PlayerVideo videoId={selectedVideo} handleClose={() => setSelectedVideo(null)} />
+
       {redirect}
     </Layout>
   );
