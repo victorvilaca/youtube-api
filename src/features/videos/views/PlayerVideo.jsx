@@ -7,7 +7,7 @@ const PlayerVideo = props => {
     if (event.keyCode === 27) {
       handleClose();
     }
-  }, []);
+  }, [handleClose]);
 
   useEffect(() => {
     document.addEventListener("keydown", escFunction);
