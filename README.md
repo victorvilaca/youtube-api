@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# YouTube API + Google OAuth 2.0 utilizando ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Qual a estrutura inicial de código utilizada?
 
-## Available Scripts
+O projeto foi criado utilizando a estrutura do [Create React App](https://github.com/facebook/create-react-app). 
 
-In the project directory, you can run:
+## O que é o projeto?
+
+O projeto é uma aplicação desenvolvida em ReactJS, utilizando APIs do Google e Youtube para realizar login, busca, listagem e play de vídeos.
+
+## Guia do projeto 
+
+Primeiramente, é necessário fazer o login na aplicação. Para logar, foi utilizado Google OAuth 2.0. 
+Logo após o login ser feito, a página de listagem e busca de vídeos irá renderizar. Para buscar os vídeos, foi utilizado a API do YouTube. 
+O usuário consegue fazer uma busca através do input no header da aplicação. Após realizar a busca, a lista de vídeos irá atualizar no momento em que uma resposta da API for detectada. 
+O usuário também consegue dar play em qualquer vídeo que está listado na tela, bastando apenas clicar em cima do mesmo.  
+
+## Executando o projeto
+
+Antes de executar o projeto, é necessário instalar todas as dependências necessárias para a execução. Para instalá-las, execute o comando abaixo:
+
+### `npm install`
+
+Após instalar todas as dependências, entre na pasta raiz do projeto e execute o comando abaixo para iniciar o projeto. 
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O projeto irá iniciar no [http://localhost:3000](http://localhost:3000). Acesse este endereço para visualizar a aplicação rodando.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+O projeto também possui alguns testes unitários na camada de Manager, que é a camada que trata o dado logo após a chamada de algum serviço. 
+Para rodar os testes unitários, execute o comando abaixo: 
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Demo
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Você consegue ver uma demonstração da aplicação [aqui](https://cartola-youtube.herokuapp.com). 
+Para hospedar essa aplicação, foi utilizada a plataforma [Heroku](https://www.heroku.com/).
