@@ -58,19 +58,20 @@ const styles = {
     justifyContent: "center",
     height: "50px",
     width: "250px",
-    border: "2px solid rgba(0, 0, 0, 0.25)",
-    borderRadius: "3px",
+    border: "2px solid rgb(227, 103, 42)",
+    borderRadius: "10px",
     cursor: "pointer",
-    backgroundColor: "#e3672a",
+    backgroundColor: "white",
     fontSize: "18px",
-    color: "white",
+    color: "rgb(227, 103, 42)",
     textAlign: "center",
     textTransform: "uppercase",
     whiteSpace: "nowrap",
     position: "fixed",
     top: "60%",
     left: "50%",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-50%, -50%)",
+    fontWeight: "bold"
   }
 };
 

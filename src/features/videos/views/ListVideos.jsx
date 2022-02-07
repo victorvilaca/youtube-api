@@ -92,7 +92,7 @@ const styles = {
     marginRight: "50px",
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-    gridGap: "100px"
+    gridGap: "70px"
   }
 };
 
