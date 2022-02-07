@@ -6,19 +6,21 @@ class VideoManager {
     const videos = responseVideos && responseVideos.data && responseVideos.data.items;
     const videosIds = [];
 
-    if (videos)
+    if (videos) {
       videos.forEach(
         video => video && video.id && video.id.videoId && videosIds.push(video.id.videoId)
       );
 
-    const responseStatistics = await VideoService.getVideoStatisticById(videosIds.toString());
-    const statistics =
-      responseStatistics && responseStatistics.data && responseStatistics.data.items;
+      const responseStatistics = await VideoService.getVideoStatisticById(videosIds.toString());
 
-    videos.forEach(video => {
-      const statistic = statistics.find(element => element.id === video.id.videoId);
-      video.statistic = statistic || null;
-    });
+      const statistics =
+        responseStatistics && responseStatistics.data && responseStatistics.data.items;
+
+      videos.forEach(video => {
+        const statistic = statistics.find(element => element.id === video.id.videoId);
+        video.statistic = statistic || null;
+      });
+    }
 
     return videos;
   }
