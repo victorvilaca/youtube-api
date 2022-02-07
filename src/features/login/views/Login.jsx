@@ -23,7 +23,7 @@ const Login = () => {
     <div style={styles.backgroundImagem}>
       <img src={CartolaLogo} alt="Logo Cartola" align="center" style={styles.logo} />
       <GoogleLogin
-        clientId="66114303598-mogdi0fc09ptl6ldovqf4kcs0mtr3h3i.apps.googleusercontent.com"
+        clientId={process.env.REACT_APP_GOOGLE_API_ID}
         buttonText="Login"
         cookiePolicy="single_host_origin"
         onSuccess={responseGoogle}

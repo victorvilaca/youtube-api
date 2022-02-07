@@ -26,8 +26,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    borderBottom:'1px solid #c17980'
-
+    borderBottom: "1px solid #c17980"
   },
   textfieldContainer: {
     marginLeft: "20px",

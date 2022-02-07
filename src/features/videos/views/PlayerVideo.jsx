@@ -16,6 +16,7 @@ const PlayerVideo = props => {
       document.removeEventListener("keydown", escFunction);
     };
   }, [escFunction]);
+
   return (
     videoId && (
       <div style={styles.modal} onClick={() => handleClose()}>
@@ -23,6 +24,7 @@ const PlayerVideo = props => {
           style={styles.iframe}
           src={`https://www.youtube.com/embed/${videoId}`}
           allow="encrypted-media"
+          title="iframe youtube"
         ></iframe>
       </div>
     )

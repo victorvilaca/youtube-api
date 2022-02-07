@@ -21,7 +21,7 @@ const Textfield = props => {
 
 const styles = {
   button: {
-    cursor: "pointer",
+    cursor: "pointer"
   }
 };
 
