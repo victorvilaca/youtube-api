@@ -3,11 +3,14 @@ import { useCallback, useEffect } from "react";
 const PlayerVideo = props => {
   const { handleClose, videoId } = props;
 
-  const escFunction = useCallback(event => {
-    if (event.keyCode === 27) {
-      handleClose();
-    }
-  }, [handleClose]);
+  const escFunction = useCallback(
+    event => {
+      if (event.keyCode === 27) {
+        handleClose();
+      }
+    },
+    [handleClose]
+  );
 
   useEffect(() => {
     document.addEventListener("keydown", escFunction);
