@@ -139,7 +139,7 @@ const mockTermoSemResultado = "teste sem resultado";
 
 describe("Test video manager", () => {
   it("List videos by term with valid return", async () => {
-    VideoService.searchVideos = jest.fn(() => serviceSearchVideosMock);
+    VideoService.searchVideos = jest.fn(async () => await serviceSearchVideosMock);
     VideoService.getVideoStatisticById = jest.fn(
       async () => await { data: { items: serviceStatisticsMock } }
     );
