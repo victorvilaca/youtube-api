@@ -3,10 +3,16 @@ import { Search } from "react-feather";
 const Textfield = props => {
   const { onChange, buttonSearch, buttonSearchOnClick, ...rest } = props;
 
+  const handleKeyDown = event => {
+    if (event.key === "Enter") {
+      buttonSearchOnClick();
+    }
+  };
+
   return (
     <>
       <input
-        className="rounded-md w-full border border-gray-400 p-3 mb-5"
+        onKeyDown={handleKeyDown}
         onChange={({ target: { value } }) => onChange(value)}
         {...rest}
       />
