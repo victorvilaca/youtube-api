@@ -2,6 +2,7 @@ import { useState } from "react";
 import GoogleLogin from "react-google-login";
 import { Redirect } from "react-router-dom";
 import CartolaLogo from "../../../shared/img/cartola-logo.png";
+import YoutubeLogo from "../../../shared/img/youtube.png";
 
 const Login = () => {
   const [redirect, setRedirect] = useState(null);
@@ -21,7 +22,8 @@ const Login = () => {
 
   return (
     <div style={styles.backgroundImagem}>
-      <img src={CartolaLogo} alt="Logo Cartola" align="center" style={styles.logo} />
+      <img src={CartolaLogo} alt="Logo Cartola" align="center" style={styles.logoCartola} />
+      <img src={YoutubeLogo} alt="Logo Youtube" align="center" style={styles.logoYoutube} />
       <GoogleLogin
         clientId={process.env.REACT_APP_GOOGLE_API_ID}
         buttonText="Login"
@@ -45,13 +47,21 @@ const styles = {
     height: "100%",
     width: "100%",
     position: "fixed",
-    backgroundColor: "#e8642c"
+    backgroundColor: "#e3682a"
   },
-  logo: {
+  logoCartola: {
     position: "fixed",
-    top: "40%",
+    top: "35%",
     left: "50%",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-50%, -50%)",
+    height: "100px"
+  },
+  logoYoutube: {
+    position: "fixed",
+    top: "48%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    height: "100px"
   },
   loginButton: {
     alignItems: "center",
