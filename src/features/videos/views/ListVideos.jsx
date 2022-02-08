@@ -4,6 +4,7 @@ import Layout from "../../layout/views/Layout";
 import VideoManager from "../VideoManager";
 import VideoDetails from "./VideoDetails";
 import PlayerVideo from "./PlayerVideo";
+import Loading from "../../../shared/components/Loading";
 
 const ListVideos = props => {
   const { location } = props;
@@ -12,12 +13,15 @@ const ListVideos = props => {
   const [videos, setVideos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("cartola fc");
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const user = location && location.state && location.state.user;
 
   const searchVideos = async searchTerm => {
+    setLoading(true);
     const response = await VideoManager.listVideosByTerm(searchTerm);
     setVideos(response);
+    setLoading(false);
   };
 
   const searchTermRef = useRef(searchTerm);
@@ -44,7 +48,10 @@ const ListVideos = props => {
       searchVideos={searchVideos}
     >
       <div style={styles.content}>
-        {videos &&
+        {loading ? (
+          <Loading />
+        ) : (
+          videos &&
           videos.map(video => {
             const id = video && video.id && video.id.videoId;
             const image =
@@ -76,7 +83,8 @@ const ListVideos = props => {
                 />
               )
             );
-          })}
+          })
+        )}
       </div>
 
       <PlayerVideo videoId={selectedVideo} handleClose={() => setSelectedVideo(null)} />
